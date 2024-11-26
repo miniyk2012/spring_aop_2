@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--扫描注解的包-->
+    <context:component-scan base-package="cn.tulingxueyuan"></context:component-scan>
+
+
+    <!--启动aop的注解方式的使用-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+    <!--AOP的xml方式实现
+
+    <aop:config>
+        <aop:aspect ref="logAspectTwo">
+            <aop:pointcut id="cutAllService" expression="execution(* cn.tulingxueyuan.service.impl.*.*(..))"/>
+            <aop:before method="before"  pointcut="execution(* cn.tulingxueyuan.service.impl.*.*(..)) &amp;&amp;  @annotation(logger)"></aop:before>
+            <aop:after method="after" pointcut-ref="cutAllService"></aop:after>
+            <aop:after-throwing method="afterThrowing" throwing="ex"  pointcut-ref="cutAllService"></aop:after-throwing>
+            <aop:after-returning method="afterReturning" returning="returnValue" pointcut-ref="cutAllService"></aop:after-returning>
+
+            <aop:around method="arround" pointcut-ref="cutAllService"></aop:around>
+        </aop:aspect>
+    </aop:config>
+    -->
+
+</beans>
